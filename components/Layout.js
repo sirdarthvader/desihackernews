@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Head from "next/head";
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title }) => (
   <div>
     <Head>
       <title>{title}</title>
+      <meta name="description" content="A clone web app fo =r hacker news built using NextJS" />
     </Head>
     <div className="container">
       <nav>
@@ -42,7 +43,7 @@ const Layout = ({ children, title }) => {
         font-family: Verdana, Geneva, san-serif;
       }
     `}</style>
-  </div>;
-};
+  </div>
+);
 
 export default Layout;
