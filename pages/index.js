@@ -4,6 +4,7 @@ import Error from "next/error";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Router from "next/router";
+import Footer from "../components/Footer";
 
 class Index extends React.Component {
   static async getInitialProps({ req, res, query }) {
@@ -34,31 +35,8 @@ class Index extends React.Component {
       <div className="main-app root hacker-news-clone">
         <Layout title="Desi hacker news">
           <StoryList stories={stories} />
-          <footer>
-            {page > 1 && (
-              <a onClick={() => Router.back()}>Previous ({page - 1})</a>
-            )}
-            <Link href={`/?page=${page + 1}`}>
-              <a>Next Page ({page + 1})</a>
-            </Link>
-          </footer>
+          <Footer page={page} />
         </Layout>
-
-        <style jsx>
-          {`
-            footer {
-              padding: 1em;
-            }
-            footer a {
-              font-weight: bold;
-              font-size: 0.8rem;
-              color: black;
-              text-decoration: none;
-              margin-right: 1em;
-              cursor: pointer;
-            }
-          `}
-        </style>
       </div>
     );
   }

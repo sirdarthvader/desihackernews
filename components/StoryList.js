@@ -6,7 +6,9 @@ const StoryList = ({ stories }) => (
       stories.map((story) => (
         <div className="story" key={story.id}>
           <h2 className="story-title">
-            <a href={story.url}>{story.title}</a>
+            <a target="_blank" href={story.url}>
+              {story.title}
+            </a>
           </h2>
           <div className="story-details">
             <span>{story.points || 0} points</span>
