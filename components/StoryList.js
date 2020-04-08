@@ -30,6 +30,10 @@ const StoryList = ({ stories }) => (
         margin: 0;
         margin-bottom: 0.5em;
       }
+      .story-details {
+        font-size: 9pt;
+        color: #828282;
+      }
       .story-title a {
         color: #333;
         text-decoration: none;

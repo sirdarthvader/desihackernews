@@ -1,13 +1,22 @@
 import Link from "next/link";
 import Head from "next/head";
-const Layout = ({ children, title }) => (
+import Router from "next/router";
+const Layout = ({ children, title, goBack }) => (
   <div>
     <Head>
       <title>{title}</title>
-      <meta name="description" content="A clone web app fo =r hacker news built using NextJS" />
+      <meta
+        name="description"
+        content="A clone web app fo =r hacker news built using NextJS"
+      />
     </Head>
     <div className="container">
       <nav>
+        {goBack && (
+          <span onClick={() => Router.back()} className="back-button">
+            &#x2b05;
+          </span>
+        )}
         <Link href="/">
           <a>
             <span className="main-title">Desi Hacker News</span>
@@ -35,6 +44,12 @@ const Layout = ({ children, title }) => (
       }
       nav .main-title {
         font-weight: bold;
+      }
+
+      nav .back-button {
+        font-size: 0.9rem;
+        margin-right: 1em;
+        cursor: pointer;
       }
     `}</style>
     <style global jsx>{`
