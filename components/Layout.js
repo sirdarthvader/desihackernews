@@ -7,7 +7,7 @@ const Layout = ({ children, title, goBack }) => (
       <title>{title}</title>
       <meta
         name="description"
-        content="A clone web app fo =r hacker news built using NextJS"
+        content="A clone web app for hacker news built using NextJS"
       />
     </Head>
     <div className="container">
