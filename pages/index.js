@@ -7,6 +7,12 @@ import Router from "next/router";
 import Footer from "../components/Footer";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: "",
+    };
+  }
   static async getInitialProps({ req, res, query }) {
     let error = null;
     let stories;
@@ -26,6 +32,18 @@ class Index extends React.Component {
     return { stories, error, page };
   }
 
+  goTopage = () => {
+    let elem = document.createElement("a");
+    elem.href = `/?page=${this.state.page}`;
+    elem.click();
+  };
+
+  getPageNumber = (page) => {
+    this.setState({
+      page,
+    });
+  };
+
   render() {
     const { stories, error, page } = this.props;
     if (!stories.length && error) {
@@ -35,7 +53,11 @@ class Index extends React.Component {
       <div className="main-app root hacker-news-clone">
         <Layout title="Desi hacker news">
           <StoryList stories={stories} />
-          <Footer page={page} />
+          <Footer
+            page={page}
+            goTopage={this.goTopage}
+            getPageNumber={this.getPageNumber}
+          />
         </Layout>
       </div>
     );

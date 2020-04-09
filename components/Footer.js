@@ -1,5 +1,5 @@
 import Link from "next/link";
-const Footer = ({ page }) => (
+const Footer = ({ page, getPageNumber, goTopage }) => (
   <footer>
     {page > 1 && (
       <a className="footer-previous" onClick={() => Router.back()}>
@@ -12,13 +12,14 @@ const Footer = ({ page }) => (
       type="number"
       name="page-number"
       id="page-number"
+      onChange={(e) => getPageNumber(e.target.value)}
       defaultValue={page}
     />
     <input
       type="submit"
       className="submit"
       value="Go"
-      onClick={() => console.log("click")}
+      onClick={() => goTopage()}
     />
     <Link href={`/?page=${page + 1}`}>
       <a className="footer-next">Next Page</a>
@@ -45,7 +46,7 @@ const Footer = ({ page }) => (
         }
 
         footer input {
-          width: 20px;
+          width: 40px;
           height: 20px;
           margin-right: 1em;
         }
