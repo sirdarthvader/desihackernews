@@ -51,7 +51,7 @@ class Index extends React.Component {
     }
     return (
       <div className="main-app root hacker-news-clone">
-        <Layout title="Desi hacker news">
+        <Layout title="Indie hacker news">
           <StoryList stories={stories} />
           <Footer
             page={page}
