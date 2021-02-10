@@ -52,7 +52,7 @@ class Index extends React.Component {
     return (
       <div className="main-app root hacker-news-clone">
         <Layout title="Indie hacker news">
-          <StoryList stories={stories} />
+          <StoryList stories={[]} />
           <Footer
             page={page}
             goTopage={this.goTopage}

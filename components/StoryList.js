@@ -1,8 +1,8 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
-const StoryList = ({ stories }) => (
+const StoryList = ({ stories = [] }) => (
   <div className="story-list">
-    {stories &&
+    {stories.length &&
       stories.map((story) => (
         <div className="story" key={story.id}>
           <h2 className="story-title">
